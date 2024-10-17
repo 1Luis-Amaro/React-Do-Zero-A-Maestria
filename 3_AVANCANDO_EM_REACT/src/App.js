@@ -6,10 +6,13 @@ import ConditionalRender from './components/ConditionalRender';
 import ListaRender from './components/ListaRender';
 import ManageData from './components/ManageData';
 import ShowUserName from './components/ShowUserName';
-import CarDetails from './CarDetails';
-import Fragment from './Fragment';
-import Container from './Container';
-import ExecuteFunction from './ExecuteFunction';
+import CarDetails from './components/CarDetails';
+import Fragment from './components/Fragment';
+import Container from './components/Container';
+import ExecuteFunction from './components/ExecuteFunction';
+import Message from './Message';
+import ChangeMessageState from './components/ChangeMessageState';
+import UserDetails from './components/UserDetails';
 
 
 
@@ -24,6 +27,12 @@ function App() {
   
   function showMessage(){
     console.log("Evento do component pai")
+  }
+
+  const [message, setMessage] = useState("")
+
+  const handleMessage = (msg) => {
+    setMessage(msg)
   }
 
   return (
@@ -71,6 +80,13 @@ function App() {
       </Container>
       {/**executar funcao*/}
       <ExecuteFunction myFunction={showMessage}/>
+
+      {/**state lift*/}
+      <Message msg={message} />
+      <ChangeMessageState handleMessage={handleMessage} />
+
+        {/**Desafio*/}
+        <UserDetails/>
     </div>
   );
 }
