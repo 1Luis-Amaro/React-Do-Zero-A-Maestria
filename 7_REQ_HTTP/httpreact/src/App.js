@@ -11,7 +11,7 @@ function App() { // Define o componente principal do aplicativo.
   const [products, setProducts] = useState([]); // Cria um estado chamado "products", que começa como uma lista vazia. Esse estado será preenchido com os produtos.
 
 //4 - custom
-const {data: items, httpConfig} = useFetch(url)
+const {data: items, httpConfig, loading} = useFetch(url)
 
 
   const [name, setName] = useState(""); // Cria um estado chamado "name", que vai armazenar o nome de um novo produto. Começa como uma string vazia.
@@ -59,11 +59,13 @@ const {data: items, httpConfig} = useFetch(url)
   return ( // Inicia o que será renderizado (mostrado) na tela.
     <div className="App"> {/* Cria uma div com a classe CSS "App", que define o estilo dessa área. */}
       <h1>Lista de produtos</h1> {/* Exibe o título "Lista de produtos" na página. */}
-      <ul> {/* Cria uma lista não ordenada para mostrar os produtos. */}
+      {/**6 - loading */}
+      {loading && <p> Carregando dados...</p>}
+      {!loading && <ul> {/* Cria uma lista não ordenada para mostrar os produtos. */}
         {items && items.map((product) => ( // Percorre a lista de produtos e, para cada produto, cria um item da lista (li).
           <li key={product.id}> {product.name} - R$:{product.price} </li> // Mostra o nome e o preço de cada produto na lista, usando a chave "id" para identificar cada um.
         ))}
-      </ul>
+      </ul>}
       <div className="add-product"> {/* Cria uma div com a classe "add-product" para organizar a parte de adicionar produtos. */}
         <form onSubmit={handleSubmit}> {/* Quando o formulário for enviado, chama a função handleSubmit. */}
           <label> {/* Cria um rótulo para o campo de nome. */}

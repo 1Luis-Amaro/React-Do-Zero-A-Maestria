@@ -39,6 +39,21 @@
       "id": "a0eb",
       "name": "mouse",
       "price": "60"
+    },
+    {
+      "id": "f7c6",
+      "name": "suporte monitor ",
+      "price": "120"
+    },
+    {
+      "id": "4ff7",
+      "name": "cabo hdmi",
+      "price": "10"
+    },
+    {
+      "id": "c195",
+      "name": "mouse",
+      "price": "15"
     }
   ]
 }
