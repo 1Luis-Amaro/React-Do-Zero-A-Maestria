@@ -86,7 +86,9 @@ const {data: items, httpConfig, loading} = useFetch(url)
               onChange={(e) => setPrice(e.target.value)} // Atualiza o estado "price" sempre que o valor do input mudar.
             />
           </label>
-          <input type="submit" value="Criar" /> {/* Cria o botão de envio, que ao ser clicado, chama handleSubmit. */}
+          {/**7 - state de loading no post  */}
+          {loading && <input type="submit" value="Aguarde" /> }{/* Cria o botão de envio, que ao ser clicado, chama handleSubmit. */}
+          {!loading && <input type="submit" value="Criar" /> }{/* Cria o botão de envio, que ao ser clicado, chama handleSubmit. */}
         </form>
       </div>
     </div>
