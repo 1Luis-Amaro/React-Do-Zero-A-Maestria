@@ -11,7 +11,7 @@ function App() { // Define o componente principal do aplicativo.
   const [products, setProducts] = useState([]); // Cria um estado chamado "products", que começa como uma lista vazia. Esse estado será preenchido com os produtos.
 
 //4 - custom
-const {data: items, httpConfig, loading} = useFetch(url)
+const {data: items, httpConfig, loading, error} = useFetch(url)
 
 
   const [name, setName] = useState(""); // Cria um estado chamado "name", que vai armazenar o nome de um novo produto. Começa como uma string vazia.
@@ -61,7 +61,8 @@ const {data: items, httpConfig, loading} = useFetch(url)
       <h1>Lista de produtos</h1> {/* Exibe o título "Lista de produtos" na página. */}
       {/**6 - loading */}
       {loading && <p> Carregando dados...</p>}
-      {!loading && <ul> {/* Cria uma lista não ordenada para mostrar os produtos. */}
+      {error && <p>{error} </p>}
+      {!error && <ul> {/* Cria uma lista não ordenada para mostrar os produtos. */}
         {items && items.map((product) => ( // Percorre a lista de produtos e, para cada produto, cria um item da lista (li).
           <li key={product.id}> {product.name} - R$:{product.price} </li> // Mostra o nome e o preço de cada produto na lista, usando a chave "id" para identificar cada um.
         ))}
