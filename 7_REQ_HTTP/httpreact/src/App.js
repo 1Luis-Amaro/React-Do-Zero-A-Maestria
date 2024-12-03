@@ -4,19 +4,14 @@ import { useState, useEffect } from "react"; // Importa duas funções do React:
 
 // 4 - custom hook
 import { useFetch } from './hooks/useFetch';
-  const [data, setData] = useState(null)
 
-//5 - refatorando post
-  const [config, setConfig] = useState(null)
-  const [method, setMethod] = useState(null)
-  const [callFetch, setCallFetch] = useState
 const url = "http://localhost:3000/products"; // Define a URL onde os produtos estão armazenados no servidor local.
 
 function App() { // Define o componente principal do aplicativo.
   const [products, setProducts] = useState([]); // Cria um estado chamado "products", que começa como uma lista vazia. Esse estado será preenchido com os produtos.
 
 //4 - custom
-const {data: items} = useFetch(url)
+const {data: items, httpConfig} = useFetch(url)
 
 
   const [name, setName] = useState(""); // Cria um estado chamado "name", que vai armazenar o nome de um novo produto. Começa como uma string vazia.
@@ -41,18 +36,21 @@ const {data: items} = useFetch(url)
 
     const product = { name, price }; // Cria um objeto "product" com os valores dos estados "name" e "price".
 
-    const res = await fetch(url, { // Faz uma requisição HTTP (POST) para enviar o novo produto para o servidor.
-      method: "POST", // Define o método da requisição como "POST", que é usado para criar novos dados no servidor.
-      headers: {
-        "Content-Type": "application/json", // Especifica que estamos enviando dados em formato JSON.
-      },
-      body: JSON.stringify(product), // Converte o objeto "product" em uma string JSON para enviar no corpo da requisição.
-    });
-
+   // const res = await fetch(url, { // Faz uma requisição HTTP (POST) para enviar o novo produto para o servidor.
+   //   method: "POST", // Define o método da requisição como "POST", que é usado para criar novos dados no servidor.
+    //  headers: {
+   //     "Content-Type": "application/json", // Especifica que estamos enviando dados em formato JSON.
+   //   },
+   //   body: JSON.stringify(product), // Converte o objeto "product" em uma string JSON para enviar no corpo da requisição.
+   // });
+//
     // 3 - Carregamento dinâmico
-    const addedProduct = await res.json(); // Converte a resposta da requisição para JSON, recebendo o novo produto adicionado.
+    //const addedProduct = await res.json(); // Converte a resposta da requisição para JSON, recebendo o novo produto adicionado.
+//
+    //setProducts((prevProducts) => [...prevProducts, addedProduct]); // Atualiza o estado "products" adicionando o novo produto à lista existente.
 
-    setProducts((prevProducts) => [...prevProducts, addedProduct]); // Atualiza o estado "products" adicionando o novo produto à lista existente.
+    //5 - refatorando post
+    httpConfig(product, "POST")
 
     setName(""); // Limpa o campo de nome do formulário após o envio.
     setPrice(""); // Limpa o campo de preço do formulário após o envio.
