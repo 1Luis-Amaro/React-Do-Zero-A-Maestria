@@ -14,6 +14,7 @@ function App() {
     <div className="App">
       <h1>React Router</h1>
       <BrowserRouter>
+      {/**2 - links com react router */}
       <Navbar/>
         <Routes>
             <Route path="/" element={<Home/>}/>
