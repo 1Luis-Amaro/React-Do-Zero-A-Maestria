@@ -14,10 +14,12 @@ const Home = () => {
     {error && <p>{error}</p>}
     <ul className="products">
     {items && 
-        items.map(item => (
+        items.map((item) => (
         <li key={item.id}>
             <h2>{item.name}</h2>
-                <p>R$: {item.price}</p>            
+                <p>R$: {item.price}</p>          
+            {/**4 - rota dinamica */}
+            <Link to={`/products/${item.id}`}>Detalhes</Link> 
         </li>
     ))}
 
