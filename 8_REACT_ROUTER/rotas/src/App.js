@@ -11,6 +11,8 @@ import Navbar from './components/Navbar';
 import Product from './pages/Product';
 import Info from './pages/Info.js';
 import NotFound from './pages/NotFound.js';
+import SearchForm from './components/SearchForm.js';
+import Search from './pages/Search.js';
 
 function App() {
   return (
@@ -18,15 +20,19 @@ function App() {
       <h1>React Router</h1>
       <BrowserRouter>
       <Navbar/>
+      {/** 9 - serach */}
+      <SearchForm/>
         <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/about" element={<About/>}/>
-            {/**4 - rota dinamica */}
-            <Route path='/products/:id' element ={<Product/>}/>
             {/** 6 - nested route */}
             <Route path='/products/:id/info' element ={<Info/>}/>
+            {/**4 - rota dinamica */}
+            <Route path='/products/:id' element ={<Product/>}/>
+            {/**9 - search */}
+            <Route path='/search' element={<Search />} />
             {/*7 - no match route*/}
-            <Route path='*' element={<NotFound/>} ></Route>
+            <Route path='*' element={<NotFound/>} />
         </Routes>
       </BrowserRouter>
     </div>
