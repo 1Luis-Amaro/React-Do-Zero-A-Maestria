@@ -23,7 +23,7 @@ export const useFetch = (url) => { // Define o custom hook useFetch que recebe u
             setConfig({
                 method, // Define o método como POST.
                 Headers: { // Configura os cabeçalhos HTTP.
-                    "Content-tyoe": "application/json" // Define o tipo de conteúdo como JSON.
+                    "Content-type": "application/json" // Define o tipo de conteúdo como JSON.
                 },
                 body: JSON.stringify(data) // Converte os dados do produto em uma string JSON.
             });
@@ -34,7 +34,7 @@ export const useFetch = (url) => { // Define o custom hook useFetch que recebe u
             setConfig({
                 method, // Define o método como DELETE.
                 Headers: { // Configura os cabeçalhos HTTP.
-                    "Content-tyoe": "application/json" // Define o tipo de conteúdo como JSON.
+                    "Content-type": "application/json" // Define o tipo de conteúdo como JSON.
                 },
             });
 
