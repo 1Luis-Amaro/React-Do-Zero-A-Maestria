@@ -1,11 +1,14 @@
-
+import {CounterContext} from '../context/CounterContext'
 import './Home.css'
+import {useContext} from "react"
 
 const Home = () => {
+  const {counter} = useContext(CounterContext)
   return (
     
     <div>
-      <h1>o inicio foi</h1>
+      <h1>Home</h1>
+      <p>Valor do contador {counter}</p>
     </div>
   )
 }
