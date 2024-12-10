@@ -6,9 +6,16 @@ import './Home.css'
 //4 - refatorando com hook
 import { useCounterContext } from '../hooks/useCounterContext'
 
+//5 - context mais complexo 
+import { useTitleColorContext } from '../hooks/useTitleColorContext'
+
+
 const Home = () => {
   //const {counter} = useContext(CounterContext)
   const {counter} = useCounterContext()
+
+  //5 - context mais complexo
+
   return (
     
     <div>
