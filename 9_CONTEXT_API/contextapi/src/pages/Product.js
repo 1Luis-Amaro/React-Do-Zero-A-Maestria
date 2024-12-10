@@ -1,13 +1,17 @@
-import {Link, useParams} from "react-router-dom"
 import './Product.css'
-import { useFetch } from "../hooks/useFetch"
+import React from 'react'
+import {useContext} from "react"
+import { CounterContext } from '../context/CounterContext'
+import ChangeCounter from '../components/ChangeCounter'
 
 
 const Product = () => {
-    
+  const {counter} = useContext(CounterContext)
+
     return (
     <div>
-      <h1>Produtos</h1>
+      <h1>Product</h1>
+      <p>Valor de contador {counter}</p>
     </div>
     )
 }
