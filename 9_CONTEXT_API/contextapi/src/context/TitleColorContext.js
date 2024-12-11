@@ -1,10 +1,17 @@
-import {createContext,useReducer} from "react"
+import { createContext, useReducer } from "react"
 
 export const TitleColorContext = createContext()
 
-export const TitleColorContextProvider = ({children}) => {
+export const TitleColorReducer = (state, action) => {
+    //switch
+}
 
-    const [state, dispatch] = useReducer(TitleColorReducer, {color: "purple"}) 
+export const TitleColorContextProvider = ({ children }) => {
 
-    return <TitleColorContext.Provider>{children}</TitleColorContext.Provider>
+    const [state, dispatch] = useReducer(TitleColorReducer, { color: "purple" })
+
+    console.log("Title color context:", state)
+
+    return <TitleColorContext.Provider value ={{...state}}>
+        {children}</TitleColorContext.Provider>
 }
