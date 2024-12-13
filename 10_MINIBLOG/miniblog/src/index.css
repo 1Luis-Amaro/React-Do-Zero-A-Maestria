@@ -22,7 +22,7 @@ nav button {
   background-color: transparent; /* Define o fundo transparente para links e botões */
   border: none; /* Remove qualquer borda padrão de botões */
   color: #000; /* Define a cor do texto como preto (#000) */
-  transition: .4s; /* Adiciona uma transição suave de 0.4s para mudanças de estilo, como cor */
+  transition: .6s; /* Adiciona uma transição suave de 0.4s para mudanças de estilo, como cor */
   font-size: 1em; /* Define o tamanho da fonte como 1em (tamanho padrão do elemento) */
   cursor: pointer; /* Altera o cursor para um ponteiro ao passar sobre links e botões */
   font-family: "Montserrat", sans-serif; /* Define a fonte como Montserrat para links e botões */
