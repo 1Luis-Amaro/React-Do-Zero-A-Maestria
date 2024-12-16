@@ -1,10 +1,10 @@
 import { useState, useEffect, useReducer } from "react";
-import { db } from "../firebase/firestore";
+import { db } from "../firebase/config";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 
 const initialState = {
   loading: null,
-  error: nul,
+  error: null
 };
 
 const insertReducer = (state, action) => {
@@ -45,20 +45,21 @@ export const useInsertDocument = (docCollection) => {
         newDocument
       );
       checkCancelBeforeDispatch({
-        type: "INSERTED_DOC",
+        type: "INSERT_DOC",
         payload: insertDocument,
       });
-    } catch (error) {}
-
-    checkCancelBeforeDispatch({
-      type: "ERROR",
-      payload: error.message,
-    });
-  };
-  
+    } catch (error) {checkCancelBeforeDispatch({
+        type: "ERROR",
+        payload: error.message,
+      });
+    }
+  }
   useEffect(() => {
     return () => setCancelled(true);
   }, []);
 
-  return insertDocument, response;
-};
+  return {insertDocument, response};
+  };
+  
+ 
+
