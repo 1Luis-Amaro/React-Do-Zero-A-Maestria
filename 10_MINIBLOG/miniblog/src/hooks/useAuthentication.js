@@ -73,32 +73,38 @@ export const useAuthentication = () => {
         signOut(auth)
     }
 
-    //login - sign in 
-    const login = async(data) => {
-        checkIfIsCancelled()
+    //login - sign in
+const login = async (data) => {
+    checkIfIsCancelled();
 
-        setLoading(true)
-        setError(false)
+    setLoading(true);
+    setError(null); // Corrigido para resetar o erro
 
-        try {
-            await signInWithEmailAndPassword(auth, data.email, data.password)
-            setLoading(false);
-            
-        } catch (error) {
-            
-            let systemErrorMessage
+    try {
+        // Tenta autenticar o usuário
+        await signInWithEmailAndPassword(auth, data.email, data.password);
+        setLoading(false);
+    } catch (error) {
+        let systemErrorMessage;
 
-            if (error.message.includes("user-not-found")) {
-                systemErrorMessage = "Usuário não encontrado."
-            } else if(error.message.includes("wrong-password")) {
-                systemErrorMessage = "Senha incorreta."
-            }else {
-                systemErrorMessage = "Ocorreu um erro, por favor tente mais tarde."
-            }
-            setError(systemErrorMessage)
-            setLoading(false)
+        // Verifica o código do erro
+        if (error.code === "auth/user-not-found") {
+            systemErrorMessage = "Usuário não encontrado.";
+        } else if (error.code === "auth/wrong-password") {
+            systemErrorMessage = "Senha incorreta.";
+        } else if (error.code === "auth/invalid-email") {
+            systemErrorMessage = "E-mail inválido.";
+        } else {
+            // Caso genérico para erros desconhecidos
+            console.error("Erro inesperado:", error);
+            systemErrorMessage = "Ocorreu um erro, por favor tente mais tarde.";
         }
+
+        // Define o erro no estado
+        setError(systemErrorMessage);
+        setLoading(false);
     }
+};
 
 useEffect(() => {
     return () => setCancelled(true)
