@@ -1,5 +1,3 @@
-import { db } from '../../firebase/config'
-
 import React from 'react'
 import styles from './Register.module.css'
 
