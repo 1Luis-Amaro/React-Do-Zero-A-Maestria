@@ -19,6 +19,7 @@ const HookUseLayoutEffect = () => {
     <div>
         <h2>HookUseLayoutEffect</h2>
         <p>Nome: {name}</p>
+        
     </div>
   )
 }
