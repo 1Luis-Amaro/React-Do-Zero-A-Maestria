@@ -114,4 +114,10 @@ products.map((product) => {
   }
 });
 
-console.log(products);
+//console.log(products);
+
+///5 template literals
+const username = "luis"
+const age = 20
+
+console.log(`O nome do usuário é ${username} e a idade é ${age} anos`)
