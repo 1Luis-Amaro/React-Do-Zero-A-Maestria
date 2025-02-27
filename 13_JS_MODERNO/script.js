@@ -1,102 +1,117 @@
-//1 - var, let e const 
-// usando o let e const minha variavel não vaza, se eu uso o var em um if ele muda tanto no bloco como a propria variavel, isso no let e const n acontece
+// //1 - var, let e const
+// // usando o let e const minha variavel não vaza, se eu uso o var em um if ele muda tanto no bloco como a propria variavel, isso no let e const n acontece
 
-var x = 10
-var y = 15
+// var x = 10;
+// var y = 15;
 
-if(y > 10) {
-    var x = 5
-    console.log(x)
-}
+// if (y > 10) {
+//   var x = 5;
+//   console.log(x);
+// }
 
-console.log(x)
+// console.log(x);
 
-let a = 10
-let b = 15
+// let a = 10;
+// let b = 15;
 
-if(b > 10) {
-    let a = 5
-    console.log(a)
-}
+// if (b > 10) {
+//   let a = 5;
+//   console.log(a);
+// }
 
-console.log(a)
+// console.log(a);
 
+// let i = 1000;
+// for (let i = 0; i < 5; i++) {
+//   console.log(i);
+// }
 
-let i = 1000
-for(let i=0; i < 5; i++){
-    console.log(i)
-}
+// console.log(i);
 
-console.log(i)
+// //2 arrow function
+// const sum = function sum(a, b) {
+//   return a + b;
+// };
 
-//2 arrow function
-const sum = function sum(a, b) {
-    return a + b
-}
+// const arrowSum = (a, b) => a + b;
 
-const arrowSum = (a, b) => a + b
+// console.log(sum(5, 5));
+// console.log(arrowSum(5, 5));
 
-console.log(sum(5,5))
-console.log(arrowSum(5,5))
+// const greeting = (name) => {
+//   if (name) {
+//     return "Olá" + name + "!";
+//   } else {
+//     return "olá";
+//   }
+// };
 
-const greeting = (name) => {
-    if(name) {
-        return 'Olá' + name + "!"
-    }else {
-        return "olá"
-    }
-}
+// console.log(greeting(" Matheus"));
+// console.log(greeting());
 
-console.log(greeting(" Matheus"))
-console.log(greeting())
+// const testArrow = () => console.log("testou!");
 
-const testArrow = () => console.log("testou!")
+// testArrow();
 
-testArrow()
+// const user = {
+//   name: "Theo",
+//   sayUserName() {
+//     var self = this;
+//     setTimeout(function () {
+//       console.log(self);
+//       console.log("Username" + self.name);
+//     }, 500);
+//   },
+//   sayUserNameArrow() {
+//     setInterval(() => {
+//       console.log(this);
+//       console.log("Username " + this.name);
+//     }, 700);
+//   },
+// };
+// //sayUserName()
+// //sayUserNameArrow()
 
-const user = {
-    name: 'Theo',
-    sayUserName() {
-        var self = this
-        setTimeout(function() {
-            console.log(self)
-            console.log('Username' + self.name)
-        },500)
-    },
-    sayUserNameArrow() {
-        setInterval(() => {
-            console.log(this)
-            console.log('Username ' + this.name)
-        },700)
-    }
-}
-//sayUserName()
-//sayUserNameArrow()
+// //3 filter -> não muda o array
+// const arr = [1, 2, 3, 4, 5];
+// console.log(arr);
+// const highNumbers = arr.filter((n) => {
+//   if (n >= 3) {
+//     return n;
+//   }
+// });
 
+// console.log(highNumbers);
 
-//3 filter
-const arr = [1,2,3,4,5]
-console.log(arr)
-const highNumbers = arr.filter((n) => {
-    if(n >= 3) {
-        return n
-    }
-})
+// const users = [
+//   { name: "Matheus", available: false },
+//   { name: "Pedro", available: true },
+//   { name: "João", available: false },
+//   { name: "Carlos", available: true },
+// ];
 
-console.log(highNumbers)
+// const userAvailable = users.filter((user) => {
+//   return user.available;
+// });
 
-const users = [
-    {name: "Matheus", available: false },
-    {name: "Pedro", available: true },
-    {name: "João", available: false },
-    {name: "Carlos", available: true }
-]
+// const userNotAvailable = users.filter((user) => !user.available);
 
-const userAvailable = users.filter((user) => {
-    return user.available
-})
+// console.log(userAvailable);
+// console.log(userNotAvailable);
 
-const userNotAvailable = users.filter((user) => !user.available)
+//4 Map -> ai já modificamos os dados dos array  e posso implementar algo também enquando passo pelos itens
 
-console.log(userAvailable)
-console.log(userNotAvailable)
+const products = [
+  { name: "Camisa", price: 10.99, category: "Roupas" },
+  { name: "Chaleira Elétrica", price: 49.99, category: "Eletro" },
+  { name: "Fogão", price: 400, category: "Eletro" },
+  { name: "Calça jeans", price: 50.99, category: "Roupas" },
+];
+
+products.map((product) => {
+  if (product.category === "Roupas") {
+    product.onSale = true;
+  }
+});
+
+console.log(products);
