@@ -8,6 +8,11 @@ import Destructuring, {Category} from "./components/Destructuring";
 //6 - useState
 import State from "./components/State";
 
+//8 - type
+type textOrNull = string | null
+
+type fixed = "isso" | "ou" | "aquilo"
+
 function App() {
   //1 - variaveis
   const name: string = "Luis";
@@ -19,6 +24,13 @@ function App() {
     return `Olá, ${name}`;
   };
 
+  //8 - type
+  const myText: textOrNull = "tem algum texto aqui"
+  let mysecondtext: textOrNull = null
+
+  //mysecondtext = "opa"
+
+  const testandoFixed: fixed = "isso"
   return (
     <div className="App">
       <h1>TypeScript com React</h1>
@@ -56,8 +68,13 @@ function App() {
         tags={["python"]}
         category={Category.P}
       />
-
       <State/>
+      {myText &&
+        <p>Tem texto na variável</p>
+      }
+      {mysecondtext &&
+        <p>Tem texto na variavel</p>
+      }
     </div>
   );
 }

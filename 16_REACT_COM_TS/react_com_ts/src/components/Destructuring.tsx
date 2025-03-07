@@ -5,7 +5,7 @@ type Props = {
   content: string;
   commentsQty: number;
   tags: string[];
-  //8 - enum
+  //7 - enum
   category: Category
 
 };
