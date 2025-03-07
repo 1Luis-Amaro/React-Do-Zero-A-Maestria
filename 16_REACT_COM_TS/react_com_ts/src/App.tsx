@@ -1,9 +1,9 @@
 //4 - Importação de componentes
-import Destructuring from "./components/Destructuring";
 import FirtsComponent from "./components/FirtsComponent";
 
 //5 - desestruturando props
 import SecondComponent from "./components/SecondComponent";
+import Destructuring, {Category} from "./components/Destructuring";
 
 //6 - useState
 import State from "./components/State";
@@ -40,12 +40,21 @@ function App() {
         content="Algum conteudo"
         commentsQty={10}
         tags={["ts", "js"]}
+        category={Category.TS}
       />
       <Destructuring
         title="Segundo Post"
         content="Mais outro conteúdo"
         commentsQty={4}
-        tags={["php", "java"]}
+        tags={["python"]}
+        category={Category.TS}
+      />
+      <Destructuring
+        title="Segundo Post"
+        content="Mais outro conteúdo"
+        commentsQty={4}
+        tags={["python"]}
+        category={Category.P}
       />
 
       <State/>
