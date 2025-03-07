@@ -5,6 +5,9 @@ import FirtsComponent from "./components/FirtsComponent";
 //5 - desestruturando props
 import SecondComponent from "./components/SecondComponent";
 
+//6 - useState
+import State from "./components/State";
+
 function App() {
   //1 - variaveis
   const name: string = "Luis";
@@ -44,6 +47,8 @@ function App() {
         commentsQty={4}
         tags={["php", "java"]}
       />
+
+      <State/>
     </div>
   );
 }
