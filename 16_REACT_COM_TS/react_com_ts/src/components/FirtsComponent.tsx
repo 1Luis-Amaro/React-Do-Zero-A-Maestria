@@ -1,6 +1,5 @@
+//3 - componente
 import React from 'react'
-
-
 
 function FirtsComponent() {
   return (

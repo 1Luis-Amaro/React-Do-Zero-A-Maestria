@@ -1,3 +1,7 @@
+ //4 - Importação de componentes
+import FirtsComponent from "./components/FirtsComponent";
+
+
 function App() {
   //1 - variaveis
   const name: string = "Luis";
@@ -9,6 +13,7 @@ function App() {
   const userGreeting = (name: string): string => {
     return `Olá, ${name}`
   }  
+
   
   return (
     <div className="App">
@@ -23,6 +28,8 @@ function App() {
         <p>Não está trabalhando</p>
       )}
     <h3> {userGreeting(name)} </h3>
+    
+    <FirtsComponent/>
 
     </div>
   );
