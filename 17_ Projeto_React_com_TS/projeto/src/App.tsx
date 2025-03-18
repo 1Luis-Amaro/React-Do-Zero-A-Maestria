@@ -25,9 +25,10 @@ function App() {
             setTaskList={setTaskList}
           />
         </div>
-        <h2>Suas tarefas</h2>
-        <TaskList />
-        <div></div>
+        <div>
+          <h2>Suas tarefas</h2>
+          <TaskList  taskList={taskList} />
+        </div>
       </main>
       <Footer />
     </div>
