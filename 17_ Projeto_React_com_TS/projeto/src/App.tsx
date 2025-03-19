@@ -13,33 +13,54 @@ import Modal from "./components/Modal";
 
 function App() {
   const [taskList, setTaskList] = useState<ITask[]>([]);
-  const [taskToUpdate, setTaskToUpdate] = useState<ITask | null>(null)
+  const [taskToUpdate, setTaskToUpdate] = useState<ITask | null>(null);
 
-  const deleteTask = (id: number) =>  {
+  const deleteTask = (id: number) => {
     setTaskList(
-      taskList.filter(task => {
-        return task.id !== id
+      taskList.filter((task) => {
+        return task.id !== id;
       })
-    )
-  }
+    );
+  };
 
   const hideOrShowModal = (display: boolean) => {
-    const modal = document.querySelector("#modal")
+    const modal = document.querySelector("#modal");
     if (display) {
-      modal!.classList.remove("hide")
-    }else {
-      modal!.classList.add("hide")
+      modal!.classList.remove("hide");
+    } else {
+      modal!.classList.add("hide");
     }
-  }
+  };
 
-  const editTask = (task: ITask):void => {
-    hideOrShowModal(true)
-    setTaskToUpdate(task)
-  }
+  const editTask = (task: ITask): void => {
+    hideOrShowModal(true);
+    setTaskToUpdate(task);
+  };
+
+  const updatedTask = (id: number, title: string, difficulty: number) => {
+    const updatedTask: ITask = { id, title, difficulty };
+
+    const updatedItems = taskList.map((task) => {
+      return task.id === updatedTask.id ? updatedTask : task;
+    });
+
+    setTaskList(updatedItems);
+
+    hideOrShowModal(false);
+  };
 
   return (
     <div>
-      <Modal children={<TaskForm btnText="Editar Tarefa" taskList={taskList} task={taskToUpdate} />} />
+      <Modal
+        children={
+          <TaskForm
+            btnText="Editar Tarefa"
+            taskList={taskList}
+            task={taskToUpdate}
+            handleUpdate={updatedTask}
+          />
+        }
+      />
       <Header />
       <main className={styles.main}>
         <div>
@@ -52,7 +73,11 @@ function App() {
         </div>
         <div>
           <h2>Suas tarefas</h2>
-          <TaskList  taskList={taskList} handleDelete={deleteTask} handleEdit={editTask} />
+          <TaskList
+            taskList={taskList}
+            handleDelete={deleteTask}
+            handleEdit={editTask}
+          />
         </div>
       </main>
       <Footer />
